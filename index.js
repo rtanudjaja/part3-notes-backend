@@ -75,6 +75,14 @@ app.get('/api/notes', (req, res) => {
   res.json(notes)
 })
 
+app.put('/api/notes/:id', (req, res) => {
+  const id = Number(req.params.id)
+  notes = notes.find(note => note.id === id)
+  notes.important = req.params.important
+
+  response.status(204).end()
+})
+
 app.delete('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id)
   notes = notes.filter(note => note.id !== id)

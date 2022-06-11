@@ -77,7 +77,7 @@ app.put("/api/notes/:id", (req, res) => {
   const id = Number(req.params.id);
   const note = notes.find((note) => note.id === id);
   if (note) {
-    note.important = req.params.important;
+    note.important = req.body.important;
     res.json(notes);
   } else {
     res.status(404).end();
